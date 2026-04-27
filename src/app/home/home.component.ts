@@ -1,36 +1,43 @@
-import { Component, OnInit } from "@angular/core";
-import { CommunicationService } from "../communication.service";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { CommunicationService } from '../communication.service';
 
 @Component({
-    selector: 'home',
-    templateUrl: './home.component.html'
+  selector: 'app-home',
+  templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit {
-    counter: number = 0;
-    subscribeCounter: number = 0;
-    parentData = '';
-    public childData:string;
+export class HomeComponent implements OnInit, OnDestroy {
+  counter = 0;
+  subscribeCounter = 0;
+  parentData = '';
+  childData = '';
+  private subscriptions = new Subscription();
 
-    constructor(private comService: CommunicationService) {
-    }
+  constructor(private comService: CommunicationService) {}
 
-    ngOnInit(): void {
-        this.comService.increaseCountEvent.subscribe((resposne: boolean) => {
-            if (resposne)
-                this.counter++;
-        });
+  ngOnInit(): void {
+    this.subscriptions.add(
+      this.comService.increaseCountEvent.subscribe((response: boolean) => {
+        if (response) this.counter++;
+      })
+    );
+    this.subscriptions.add(
+      this.comService.decreaseCountEvent.subscribe((response: boolean) => {
+        if (response) this.counter--;
+      })
+    );
+    this.subscriptions.add(
+      this.comService.currentCounter.subscribe((response: number) => {
+        this.subscribeCounter = response;
+      })
+    );
+  }
 
-        this.comService.decreaseCountEvent.subscribe((resposne: boolean) => {
-            if (resposne)
-                this.counter--;
-        });
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
 
-        this.comService.currentCounter.subscribe((response: number) => {
-            this.subscribeCounter = response;
-        });
-    }
-
-    parentEvent() {
-        this.parentData = 'Data pass from Parent ' + Math.floor(Math.random() * 10);
-    }
+  parentEvent() {
+    this.parentData = 'Data pass from Parent ' + Math.floor(Math.random() * 10);
+  }
 }

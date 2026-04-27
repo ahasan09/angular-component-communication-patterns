@@ -15,13 +15,13 @@
   <div class="col-sm-4">
     <fieldset style="background:#72c940;">
       <legend style="font-size:20px;">Student Children</legend>
-      <student (childEvent)="childData=$event" [parentData]="parentData"></student>
+      <app-student (childEvent)="childData=$event" [parentData]="parentData"></app-student>
     </fieldset>
   </div>
   <div class="col-sm-4">
     <fieldset style="background:#b35fcc;">
       <legend style="font-size:20px;">Courses Children</legend>
-      <courses [parentData]="parentText.value"></courses>
+      <app-courses [parentData]="parentText.value"></app-courses>
     </fieldset>
   </div>
 </fieldset>

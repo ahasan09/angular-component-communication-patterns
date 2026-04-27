@@ -1,20 +1,17 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommunicationService } from '../communication.service';
 
 @Component({
-  selector: 'student',
+  selector: 'app-student',
   templateUrl: './student.component.html',
-  styleUrls: ['./student.component.css'],
-  inputs: ['parentData'],
-  outputs: ['childEvent']
+  styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
   subscribeCounter = 0;
-  public parentData: string;
-  public childEvent = new EventEmitter<string>();
+  @Input() parentData = '';
+  @Output() childEvent = new EventEmitter<string>();
 
-  constructor(private comService: CommunicationService) {
-  }
+  constructor(private comService: CommunicationService) {}
 
   ngOnInit() {
     this.comService.currentCounter.subscribe((response: number) => {
@@ -31,5 +28,4 @@ export class StudentComponent implements OnInit {
   onChange(value: string) {
     this.childEvent.emit(value);
   }
-
 }

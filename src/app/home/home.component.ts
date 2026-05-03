@@ -1,19 +1,19 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CommunicationService } from '../communication.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html'
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    standalone: false
 })
 export class HomeComponent implements OnInit, OnDestroy {
   counter = 0;
   subscribeCounter = 0;
   parentData = '';
   childData = '';
+  private comService = inject(CommunicationService);
   private subscriptions = new Subscription();
-
-  constructor(private comService: CommunicationService) {}
 
   ngOnInit(): void {
     this.subscriptions.add(

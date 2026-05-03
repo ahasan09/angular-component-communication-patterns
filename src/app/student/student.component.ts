@@ -1,17 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, inject } from '@angular/core';
 import { CommunicationService } from '../communication.service';
 
 @Component({
-  selector: 'app-student',
-  templateUrl: './student.component.html',
-  styleUrls: ['./student.component.css']
+    selector: 'app-student',
+    templateUrl: './student.component.html',
+    styleUrls: ['./student.component.css'],
+    standalone: false
 })
 export class StudentComponent implements OnInit {
   subscribeCounter = 0;
   @Input() parentData = '';
   @Output() childEvent = new EventEmitter<string>();
-
-  constructor(private comService: CommunicationService) {}
+  private comService = inject(CommunicationService);
 
   ngOnInit() {
     this.comService.currentCounter.subscribe((response: number) => {

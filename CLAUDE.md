@@ -1,35 +1,48 @@
 # Angular EventEmitter & BehaviorSubject Component Communication
 
-Angular 5 demo app illustrating two patterns for sibling/parent-child component communication: `EventEmitter` and `BehaviorSubject` via a central `CommunicationService`.
+Angular 21 demo app illustrating two patterns for sibling/parent-child component communication: `EventEmitter` and `BehaviorSubject` via a central `CommunicationService`.
 
 ## Tech Stack
-- Angular 5
-- TypeScript
+- Angular 21
+- TypeScript 5.9
 - RxJS (EventEmitter, BehaviorSubject)
+- Jest (unit testing)
+- Bootstrap 5
 
 ## Project Structure
 ```
-angular-event_emitter-behavior_subject-component_communication/
+angular-component-communication-patterns/
 ├── src/
 │   └── app/
 │       ├── communication.service.ts   # Central service with both patterns
 │       └── components/
-├── .angular-cli.json                  # Legacy Angular CLI config (Angular 5)
-└── package.json
+├── angular.json
+├── package.json
+└── tsconfig.json
 ```
 
-## Development
+## Development Commands
 ```bash
 # Install dependencies
 npm install
 
 # Run development server
-ng serve
+npm start   # or ng serve
 
-# Build
-ng build
+# Run unit tests
+npm test
+
+# Run unit tests in watch mode
+npm run test:watch
+
+# Run linter
+npm run lint
+
+# Build for production
+npm run build
 ```
 
 ## Key Notes
-- Uses the legacy `.angular-cli.json` format (Angular 5 era).
 - `CommunicationService` exposes both an `EventEmitter` and a `BehaviorSubject` to compare the two approaches side by side.
+- Uses Jest instead of Karma/Jasmine for unit testing.
+- Uses modern Angular workspace `angular.json` config.

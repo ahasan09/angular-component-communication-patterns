@@ -20,7 +20,7 @@ describe('StudentComponent', () => {
   });
 
   it('renders parent data passed from the parent component', () => {
-    component.parentData = 'Parent message';
+    fixture.componentRef.setInput('parentData', 'Parent message');
     fixture.detectChanges();
 
     expect(fixture.nativeElement.textContent).toContain('Parent message');

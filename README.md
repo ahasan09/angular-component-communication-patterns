@@ -8,7 +8,7 @@ Demonstrates common ways to pass data between Angular components:
 
 ## Tech Stack
 
-- Angular 21
+- Angular 22
 - TypeScript 5.9
 - RxJS 7
 - Bootstrap 5
@@ -18,7 +18,7 @@ Demonstrates common ways to pass data between Angular components:
 
 ## Requirements
 
-Use a Node.js version supported by Angular 21:
+Use a Node.js version supported by Angular 22:
 
 - Node.js `20.19+`, `22.12+`, or `24.x`
 - npm 10+

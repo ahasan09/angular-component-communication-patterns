@@ -27,7 +27,7 @@ describe('CoursesComponent', () => {
   });
 
   it('renders parent data and service courses', () => {
-    component.parentData = 'Parent course value';
+    fixture.componentRef.setInput('parentData', 'Parent course value');
     fixture.detectChanges();
 
     const text = fixture.nativeElement.textContent;

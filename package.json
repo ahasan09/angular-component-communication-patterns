@@ -14,13 +14,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^22.0.6",
-    "@angular/common": "^22.0.6",
-    "@angular/compiler": "^22.0.6",
-    "@angular/core": "^22.0.6",
-    "@angular/forms": "^22.0.6",
-    "@angular/platform-browser": "^22.0.6",
+    "@angular/common": "^22.1.4",
+    "@angular/compiler": "^22.1.4",
+    "@angular/core": "^22.1.4",
+    "@angular/forms": "^22.1.4",
+    "@angular/platform-browser": "^22.1.4",
     "@angular/platform-browser-dynamic": "^22.0.6",
-    "@angular/router": "^22.0.6",
+    "@angular/router": "^22.1.4",
     "bootstrap": "^5.3.8",
     "rxjs": "^7.8.2",
     "tslib": "^2.6.0",
@@ -28,16 +28,16 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^22.0.6",
-    "@angular/cli": "^22.0.6",
-    "@angular/compiler-cli": "^22.0.6",
+    "@angular/cli": "^22.1.6",
+    "@angular/compiler-cli": "^22.1.4",
     "@eslint/js": "^10.0.1",
     "@types/jest": "^30.0.0",
-    "angular-eslint": "^22.0.0",
-    "eslint": "^10.7.0",
-    "jest": "^30.4.2",
-    "jest-environment-jsdom": "^30.4.1",
+    "angular-eslint": "^22.2.0",
+    "eslint": "^10.9.1",
+    "jest": "^30.5.1",
+    "jest-environment-jsdom": "^30.5.1",
     "jest-preset-angular": "^17.0.0",
     "typescript": "~6.0.3",
-    "typescript-eslint": "^8.63.0"
+    "typescript-eslint": "^8.69.0"
   }
 }
